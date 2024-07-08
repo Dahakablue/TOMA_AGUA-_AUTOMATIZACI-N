@@ -14,22 +14,22 @@ function MostrarRecordatorio {
     $label.Text = "¡Recuerda tomar agua!"
     $form.Controls.Add($label)
 
-    $buttonSi = New-Object System.Windows.Forms.Button
-    $buttonSi.Location = New-Object System.Drawing.Point(40,80)
-    $buttonSi.Size = New-Object System.Drawing.Size(100,30)
-    $buttonSi.Text = "Sí"
-    $buttonSi.DialogResult = [System.Windows.Forms.DialogResult]::Yes
-    $form.Controls.Add($buttonSi)
+    $buttonGracias = New-Object System.Windows.Forms.Button
+    $buttonGracias.Location = New-Object System.Drawing.Point(40,80)
+    $buttonGracias.Size = New-Object System.Drawing.Size(100,30)
+    $buttonGracias.Text = "Gracias por recordarme"
+    $buttonGracias.DialogResult = [System.Windows.Forms.DialogResult]::Yes
+    $form.Controls.Add($buttonGracias)
 
-    $buttonNo = New-Object System.Windows.Forms.Button
-    $buttonNo.Location = New-Object System.Drawing.Point(160,80)
-    $buttonNo.Size = New-Object System.Drawing.Size(100,30)
-    $buttonNo.Text = "No"
-    $buttonNo.DialogResult = [System.Windows.Forms.DialogResult]::No
-    $form.Controls.Add($buttonNo)
+    $buttonApagate = New-Object System.Windows.Forms.Button
+    $buttonApagate.Location = New-Object System.Drawing.Point(160,80)
+    $buttonApagate.Size = New-Object System.Drawing.Size(100,30)
+    $buttonApagate.Text = "Apagate"
+    $buttonApagate.DialogResult = [System.Windows.Forms.DialogResult]::No
+    $form.Controls.Add($buttonApagate)
 
-    $form.AcceptButton = $buttonNo
-    $form.CancelButton = $buttonSi
+    $form.AcceptButton = $buttonApagate
+    $form.CancelButton = $buttonGracias
 
     $result = $form.ShowDialog()
 
@@ -44,7 +44,7 @@ function EjecutarRecordatorio {
         # Mostrar recordatorio
         $resultado = MostrarRecordatorio
 
-        # Si se elige "Sí" (detener el recordatorio), salir del bucle
+        # Si se elige "Gracias por recordarme" (detener el recordatorio), salir del bucle
         if ($resultado -eq [System.Windows.Forms.DialogResult]::Yes) {
             break
         }
